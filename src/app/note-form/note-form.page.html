@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="../notes">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>{{editing ? 'update' : 'create'}} note</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{editing ? 'update' : 'create'}} note</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-card-subtitle>Note title</ion-card-subtitle>
+      <ion-input [(ngModel)]="note.title" #title></ion-input>
+      <ion-card-subtitle>Description</ion-card-subtitle>
+      <ion-input [(ngModel)]="note.description" #description></ion-input>
+      <ion-button expand="full" (click)="editing ? updateNote() : saveNote(title, description)">{{editing ? 'update' : 'Save'}} </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
